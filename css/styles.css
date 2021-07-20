@@ -13,7 +13,7 @@
     --soft-blue: #e7f5ff;
     --warm-black: #201e1c;
     --black: #282623;
-    --gray: #bababa;
+    --gray: #808080;
     --off-white: #faf8f7;
     --just-white: #fff;
     /* Fuentes */
@@ -30,6 +30,7 @@ html {
     font-size: 62.5%;
     /* font-family: var(--Dm-Sans); */
     font-family: 'DM Sans';
+    scroll-behavior: smooth;
 }
 header {
     position: relative;
@@ -144,7 +145,457 @@ main {
     color: #757575;
 }
 
-.tableMonedas_grid {
+/* Slider de tablas de Monedas y Comisiones */
+
+.main-exchange-tables_slider {
+    display: flex;
+    width: 100%;
+    justify-content: start;
+    overflow-x: scroll;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+}
+.main-exchange--tables {
+    scroll-snap-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: 0 15%;
+    min-width: 25rem;
+    max-width: 50rem;
+    /* height: 36rem; */
+    font-family: "Inter", "sans-serif";
+}
+.main-exchange--tables--title {
+    width: 85%;
+    margin: 0 auto;
+    padding-left: 2rem;
+    margin-bottom: 1.5rem;
+    min-width: 23rem;
+    max-width: 30rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 2.3rem;
+    text-align: start;
+}
+.monedas .main-exchange--tables--title {
+    color: #FF9536;
+}
+
+.main-exchange--tables_grid {
     display: grid;
-    grid-template-columns: auto auto;
+    width: 85%;
+    min-width: 20rem;
+    max-width: 50rem;
+    height: 15.6rem;
+    margin: 0 auto;
+    grid-template-columns: 50% 50%;
+    margin-bottom: 2rem;
+    /* Colores */
+    border-radius: 1rem;
+    color: var(--gray);
+    font-size: 1.4rem;
+    line-height: 1.69rem;
+    background-color: var(--just-white);
+}
+.main-exchange--tables div {
+    border-bottom: .2rem solid var(--off-white);
+}
+.main-exchange--tables_title {
+    text-align: start;
+    font-weight: 500;
+    padding: 1rem 1.2rem;
+    border-right: .2rem solid var(--off-white);;
+}
+.main-exchange--tables_price {
+    font-weight: 400;
+    padding: 1rem 1.2rem;
+    text-align: start;
+    color: #757575;
+    position: relative;
+}
+.main-exchange--tables_price span {
+    position: absolute;
+    right: 1.6rem;
+    top: 1.6rem;
+    width: 1.6rem;
+    height: 1rem;
+}
+.main-exchange--tables_price .arrow-down {
+    background-image: url('../assets/icons/trending-down.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.main-exchange--tables_price .arrow-up {
+    background-image: url('../assets/icons/trending-up.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.main-exchange--tables_update {
+    margin-bottom: 3rem;
+}
+
+.main-exchange--tables_update a {
+    text-decoration: none;
+    color: var(--warm-black);
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    font-weight: bold;
+    padding: .8rem;
+    border-radius: .8rem;
+}
+.main-exchange--tables_update.monedas a {
+    background-color: var(--soft-orange);
+}
+.main-exchange--tables_update a span {
+    font-weight: normal;
+}
+.table--arrowButton {
+    position: absolute;
+    top: calc(50% - .8rem);
+    width: 1rem;
+    height: 1.6rem;
+    right: 0;
+    border: none;
+    background-color: none;
+    background-image: url('../assets/icons/right-arrow.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.comisiones .main-exchange--tables_price {
+    text-align: center;
+}
+.comisiones .main-exchange--tables--title {
+    color: var(--secondary-blue);
+}
+.main-exchange--tables_update.comisiones a {
+    background-color: var(--soft-blue);
+}
+.table--arrowButton.left {
+    left: 0;
+    transform: rotate(180deg);
+}
+
+/* Detalle del Producto */
+.main_product_detail {
+    position: relative;
+    width: 100%;
+    min-width: 32rem;
+    height: auto;
+    padding: 5rem 1.6rem 3rem 1.6rem;
+    background-color: var(--warm-black);
+
+}
+.main_product_detail .logo {
+    position: absolute;
+    width: 4rem;
+    height: 2.5rem;
+    top: -1.2rem;
+    left: calc(50% - 2rem);
+    background-image: url('../assets/icons/batata.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.main_product_detail-title {
+    width: 90%;
+    min-width: 28.8rem;
+    margin: 0 auto;
+    height: auto;
+}
+.main_product_detail-title h2 {
+    font-size: 2.4rem;
+    font-weight: bold;
+    line-height: 2.6rem;
+    margin-bottom: 2.4rem;
+    text-align: center;
+    color: var(--just-white);
+}
+.main_product_detail-title p {
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    text-align: center;
+    margin-bottom: 3.2rem;
+    color: var(--gray);
+}
+.main_product_detail-cards {
+    position: relative;
+    width: 90%;
+    min-width: 28.8rem;
+    max-width: 40rem;
+    padding: 2.2rem 1.6rem;
+    background: var(--black);
+    margin: 0 auto;
+    margin-bottom: 1.6rem;
+    box-shadow: 0 .4rem .8rem rgba(0,0,0,.16);
+    border-radius: .4rem;
+}
+.main_product_detail_cards-icon {
+    display: inline-block;
+    width: 2.5rem;
+    height: 2.5rem;
+    top: .2rem;
+    left: .2rem;
+    margin-bottom: 1rem;
+}
+.clock {
+    background-image: url('../assets/icons/clock.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.eye {
+    background-image: url('../assets/icons/eye.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.dollar {
+    background-image: url('../assets/icons/dollar-sign.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.info {
+    background-image: url('../assets/icons/check-circle.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.main_product_detail-cards p {
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    font-weight: 500;
+    color: var(--gray);
+}
+.main_product_detail-cards .main_prdouct_detail-cards--title {
+    font-size: 1.8rem;
+    line-height: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: var(--just-white);
+}
+
+/**/
+.bitconi-img-container {
+    width: 100%;
+    min-width: 32rem;
+    height: 50vh;
+    background-image: url('../assets/img/bitcoinbaby2x.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.bitconi-img-container h2 {
+    padding-top: 6rem;
+    font-size: 2.4rem;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: bold;
+    line-height: 2.6rem;
+    color: var(--just-white);
+}
+.main_plains_container {
+    position: relative;
+}
+.main_plains_container--title {
+    width: 90%;
+    min-width: 28rem;
+    max-width: 40rem;
+    margin: 0 auto;
+    margin-top: 6.4rem;
+}
+.main_plains_container--title h2 {
+    font-size: 2.4rem;
+    font-weight: bold;
+    line-height: 2.6rem;
+    margin-bottom: 2.4rem;
+    text-align: center;
+}
+.main_plains_container--title p {
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    margin-bottom: 5rem;
+    text-align: center;
+}
+
+/* Slider de los Planes */
+
+.main_plains_container--slider {
+    display: flex;
+    height: 36rem;
+    position: relative;
+    justify-content: start;
+    overflow-x: scroll;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+}
+
+
+.main_plain {
+    position: relative;
+    scroll-snap-align: center;
+    width: 70%;
+    min-width: 20rem;
+    max-width: 25rem;
+    height: 24.7rem;
+    margin: 3rem 15%;
+    /* margin-bottom: 6.4rem; */
+    font-family: "Inter", "sans-serif";
+    background: var(--just-white);
+    box-shadow: 0 .4rem .8rem rgba(89, 73, 30, .16);
+    border-radius: .8rem;
+}
+.main_plain.firts {
+    margin-left: 30%;
+}
+.main_plain.third {
+    margin-right: 30%;
+}
+.btn_badge {
+    position: absolute;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    text-align: center;
+    padding: .8rem;
+    top: -1.5rem;
+    left: calc(50% - 5rem);
+    margin-bottom: 1.6rem;
+    border-radius: .8rem;
+    background-color: var(--bitcoin-orange);
+    color: var(--just-white);
+}
+.main_plain--title {
+    font-size: 1.4rem;
+    padding-top: 3.2rem;
+    margin-bottom: .8rem;
+    text-align: center;
+    font-family: var(--Dm-Sans);
+    font-weight: 500;
+    line-height: 1.8rem;
+}
+.main_plain--price{
+    position: relative;
+    width: 6.5rem;
+    height: 5.6rem;
+    margin: 0 auto;
+    margin-bottom: 1.6rem;
+}
+
+.main_plain--price p {
+    font-size: 5.2rem;
+    font-weight: bold;
+    line-height: 6.3rem;
+    letter-spacing: -.08em;
+    text-align: center;
+}
+.main_plain--price span {
+    position: absolute;
+    top: 0;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+    margin-top: .7rem;
+    margin-left: -.5rem;
+}
+.main_plain .ahorro {
+    margin: 0 1.6rem;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    text-align: center;
+    color: gray;
+}
+.main_plain .main_plain--link {
+    display: block;
+    margin: 0 auto;
+    margin-top: 1.6rem;
+    width: 80%;
+    text-align: center;
+    text-decoration: none;
+    padding: 1.5rem 1.6rem;
+    font-family: var(--Dm-Sans);
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    color: var(--warm-black);
+    /* - */
+    border: .2rem solid #F7931A;
+    background: var(--off-white);
+    border-radius: .4rem;
+}
+.main_plain .main_plain--link span {
+    display: inline-block;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-left: .5rem;
+    margin-bottom: -.8rem;
+    background-image: url('../assets/icons/orange-right-arrow.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.main_plains_container .buttons {
+    position: absolute;
+    top: calc(55%);
+    font-weight: 600;
+    border: none;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    cursor: pointer;
+    background: none;
+    background-image: url('../assets/icons/right-arrow.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 3;
+    transition: .3s ease all;
+    filter: opacity(25%);
+}
+.main_plains_container .left {
+    left: 1rem;
+    transform: rotate(180deg);
+}
+.main_plains_container .right {
+    right: 1rem;
+}
+.main_plains_container .buttons:hover {
+    filter: blur(.1rem);
+}
+/**/
+footer {
+    display: flex;
+    width: 100%;
+    height: 15rem;
+    background-color: var(--bitcoin-orange);
+    /* justify-content: center; */
+}
+footer section {
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+}
+footer .left ul {
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    list-style: none;
+}
+footer .left ul li {
+    margin-bottom: .8rem;
+}
+footer .right {
+    margin: 1rem 0;
+}
+footer .left a {
+    color: var(--just-white);
+    text-decoration: none;
 }

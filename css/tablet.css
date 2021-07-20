@@ -1,0 +1,47 @@
+/* Tables */
+.main-exchange-tables_slider {
+    width: 50%;
+    justify-content: center;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+.main-exchange--tables {
+    width: 50%;
+    max-width: 30rem;
+    margin: 0 auto;
+}
+.table--arrowButton {
+    display: none;
+}
+/* Cards */
+.main_product_detail_cards--container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 76.8rem;
+    margin: 0 auto;
+}
+.main_product_detail-cards {
+    width: 45%;
+    margin: 1rem;
+}
+
+/* Plains */
+.main_plains_container .buttons {
+    display: none;
+}
+.main_plains_container--slider {
+    width: 50%;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+.main_plain {
+    width: 30%;
+    margin: 3rem auto;
+}
+.main_plain.firts {
+    margin-left: 0;
+}
+.main_plain.third {
+    margin-right: 0;
+}
+
